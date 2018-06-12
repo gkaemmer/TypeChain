@@ -1,11 +1,22 @@
 pragma solidity ^0.4.4;
 
 contract DumbContract {
+  struct InnerStruct {
+    uint256 inner1;
+    uint256 inner2;
+  }
+
+  struct TestStruct {
+    uint256 field1;
+    InnerStruct field2;
+  }
+
   uint public counter;
   bool constant public SOME_VALUE = true;
   uint[] public counterArray;
   address public someAddress;
   uint public arrayParamLength;
+  TestStruct public testStruct;
 
   function DumbContract() public {
     counter = 0;

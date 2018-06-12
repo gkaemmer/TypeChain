@@ -86,6 +86,12 @@ describe("DumbContract", () => {
     expect((await dumbContract.arrayParamLength).toString()).to.be.eq("3");
   });
 
+  it("should allow calling a getter that returns a tuple", async () => {
+    const dumbContract = await DumbContract.createAndValidate(web3, contractAddress);
+
+    expect(await dumbContract.testStruct()).to.be.eq([0, [0, 0]]);
+  });
+
   it("should wait for event", async () => {
     const expectedAccount = accounts[0];
     const expectedValue = 10;
